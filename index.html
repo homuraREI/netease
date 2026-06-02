@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>数学课上的危机</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei",sans-serif;background:linear-gradient(135deg,#f5f7fa,#c3cfe2);min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px}
+.container{max-width:700px;width:100%;background:#fff;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,.15);padding:40px}
+h1{text-align:center;color:#2c3e50;margin-bottom:24px;font-size:26px}
+.story{font-size:17px;line-height:1.8;color:#333;margin-bottom:20px;background:#fafafa;padding:20px;border-left:4px solid #667eea;border-radius:4px}
+.prompt{font-size:16px;line-height:1.7;color:#c0392b;margin-bottom:20px;padding:14px 18px;background:#fff5f5;border-left:4px solid #e74c3c;border-radius:4px;font-weight:600;text-align:center}
+.options{display:flex;flex-direction:column;gap:14px}
+.option-btn{padding:16px 20px;font-size:16px;border:2px solid #667eea;background:#fff;color:#667eea;border-radius:10px;cursor:pointer;text-align:left;font-weight:500;transition:all .3s}
+.option-btn:hover{background:#667eea;color:#fff;transform:translateX(6px)}
+.result{display:none}
+.result.active{display:block}
+.progress{background:#fff8e1;border-left:4px solid #ffa726;padding:18px;border-radius:4px;margin-bottom:20px;line-height:1.8}
+.ending{background:#e8f5e9;border-left:4px solid #66bb6a;padding:18px;border-radius:4px;margin-bottom:24px;line-height:1.8;color:#2e7d32;font-weight:500}
+.label{font-weight:bold;display:block;margin-bottom:8px}
+.back-btn{display:block;margin:0 auto;padding:12px 32px;background:#667eea;color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="container">
+<div id="home">
+<h1>📐 数学课上的危机</h1>
+<div class="story">现在是下午第三节枯燥的数学课。你的同桌周鹤眠在课桌底下偷偷撕开了一包番茄味的薯片，正在用课本挡着，偷偷摸摸地吃，还时不时在微信上给你发消息。<br><br>讲台上的数学老师突然停止了板书。粉笔声戛然而止。你用余光察觉到，数学老师那带有杀气的目光，穿过前排同学的头顶，精准地锁定在了你同桌那微微耸动的肩膀上！老师放下了粉笔，开始顺着过道，一步步朝你们这桌走来……</div>
+<div class="prompt">周鹤眠的生死存亡全在你的一念之间。请迅速做出你的抉择：</div>
+<div class="options">
+<button class="option-btn" onclick="show('A')">A：舍己为人，英雄救草</button>
+<button class="option-btn" onclick="show('B')">B：暗度陈仓，绝对默契</button>
+<button class="option-btn" onclick="show('C')">C：死道友不死贫道，大义灭亲</button>
+</div>
+</div>
+<div id="resultA" class="result">
+<h1>选项 A：舍己为人，英雄救草</h1>
+<div class="story">你猛地站起来，大声喊：&quot;老师！黑板上这道立体几何题辅助线是不是画错了？我有一个新的解法！&quot;强行把全班和老师的注意力吸引到自己身上。</div>
+<div class="progress"><span class="label">📖 事件进展</span>全班死寂。老师停下脚步，推了推眼镜，看着站起来的你：&quot;哦？那你上来把这道题解出来，解不出来你这节课就站着听。&quot;你硬着头皮上了讲台。</div>
+<div class="ending"><span class="label">🎬 结局</span>你在众人的目光中走向讲台，但实际上老师在讲的是导数并不是立体几何，于是你在座位上站到了下课。周鹤眠为了答谢你，包了你本周的所有作业。</div>
+<button class="back-btn" onclick="home()">🔄 重新选择</button>
+</div>
+<div id="resultB" class="result">
+<h1>选项 B：暗度陈仓，绝对默契</h1>
+<div class="story">你面不改色地伸出手，一把将周鹤眠桌兜里的薯片袋子抢过来塞进自己的书包，并在桌子底下狠狠踩一脚周鹤眠的鞋子，暗示他赶紧闭嘴装死看黑板。</div>
+<div class="progress"><span class="label">📖 事件进展</span>老师走到你们桌旁，狐疑地敲了敲桌子：&quot;你们俩干嘛呢？一股番茄味。&quot;你一脸无辜地指了指窗外：&quot;老师，可能是外面食堂在备菜吧。&quot;周鹤眠则紧闭着嘴，拼命点头，假装认真做笔记。老师没抓到证据，警告了两句就走回了讲台。</div>
+<div class="ending"><span class="label">🎬 结局</span>你们之间的配合非常默契，周鹤眠为了答谢你，答应你去超市随便拿，他买单。</div>
+<button class="back-btn" onclick="home()">🔄 重新选择</button>
+</div>
+<div id="resultC" class="result">
+<h1>选项 C：死道友不死贫道，大义灭亲</h1>
+<div class="story">在老师走到桌前的那一刻，你突然举起手，大声举报：&quot;老师！他上课不仅偷吃薯片，还不分给我！&quot;</div>
+<div class="progress"><span class="label">📖 事件进展</span>老师震怒，没收了薯片，并罚他拿着课本去教室后面罚站。他站在教室最后面，用足以杀人的目光死死盯着你的后脑勺，并在讲台盲区对你疯狂比划&quot;放学你死定了&quot;的手势。</div>
+<div class="ending"><span class="label">🎬 结局</span>下课后老师问周鹤眠为什么要上课吃东西，周鹤眠说食堂太难吃，老师罚他吃一个月食堂，上学不许吃别的。</div>
+<button class="back-btn" onclick="home()">🔄 重新选择</button>
+</div>
+</div>
+<script>
+function show(c){document.getElementById("home").style.display="none";document.getElementById("result"+c).classList.add("active");window.scrollTo(0,0);}
+function home(){document.querySelectorAll(".result").forEach(e=>e.classList.remove("active"));document.getElementById("home").style.display="block";window.scrollTo(0,0);}
+</script>
+</body>
+</html>
